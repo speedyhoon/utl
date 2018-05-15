@@ -16,7 +16,7 @@ func TestOrdinal(t *testing.T) {
 			t.Errorf("%v is an invalid ordinal", o)
 		}
 
-		if strings.HasPrefix(o, "="){
+		if strings.HasPrefix(o, "=") {
 			t.Errorf("%v should not be prefixed with `=`", o)
 		}
 	}
@@ -28,7 +28,7 @@ func TestOrdinalEquals(t *testing.T) {
 	for ; i < math.MaxUint16; i++ {
 		o := Ordinal(uint(i), true)
 
-		if !strings.HasPrefix(o, "="){
+		if !strings.HasPrefix(o, "=") {
 			t.Errorf("%v should be prefixed with `=`", o)
 		}
 
