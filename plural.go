@@ -4,7 +4,7 @@ import "fmt"
 
 //Plural returns an "s" if length != 1
 func Plural(length int, single, multiple string) string {
-	if length != 1 {
+	if length != 1 && length != -1 {
 		if multiple != "" {
 			return multiple
 		}
