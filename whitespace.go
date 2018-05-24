@@ -7,14 +7,16 @@ import (
 
 //StripWhiteSpace removes unicode whitespace characters and condenses condenses multiple spaces to a single character
 func StripWhiteSpace(str string) string {
-	a := strings.Map(func(r rune) rune {
+	return CollapseSpaces(strings.Map(func(r rune) rune {
 		//credit: Tim Cooper //stackoverflow.com/questions/32081808/strip-all-whitespace-from-a-string
-		if unicode.IsSpace(r) && r != ' ' {
+		if !unicode.IsPrint(r) || unicode.IsSpace(r) && r != ' ' {
 			return -1
 		}
 		return r
-	}, str)
+	}, str))
+}
 
+func CollapseSpaces(a string) string {
 	l := len(a)
 	for {
 		//Replace double spaces with a single space

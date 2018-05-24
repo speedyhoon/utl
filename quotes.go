@@ -1,8 +1,8 @@
 package utl
 
 import (
-	"strings"
 	"fmt"
+	"strings"
 )
 
 //AddQuotes returns value with or without surrounding single or double quote characters suitable for a [[//dev.w3.org/html5/html-author/#attributes][HTML5 attribute]] value.
