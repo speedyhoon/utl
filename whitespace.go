@@ -1,6 +1,7 @@
 package utl
 
 import (
+	"bytes"
 	"strings"
 	"unicode"
 )
@@ -16,6 +17,10 @@ func StripWhiteSpace(str string) string {
 	}, str))
 }
 
+func StripWhiteSpaceBytes(src []byte) []byte {
+	return []byte(StripWhiteSpace(string(src)))
+}
+
 func CollapseSpaces(str string) string {
 	for i := 0; i != len(str); {
 		i = len(str)
@@ -23,4 +28,14 @@ func CollapseSpaces(str string) string {
 		str = strings.Replace(str, "  ", " ", -1)
 	}
 	return str
+}
+
+//TrimSpace removes all leading & trailing null & whitespace from src
+func TrimSpace(src []byte) []byte {
+	for i := 0; i != len(src); {
+		i = len(src)
+		src = bytes.Trim(src, "\x00")
+		src = bytes.TrimSpace(src)
+	}
+	return src
 }
