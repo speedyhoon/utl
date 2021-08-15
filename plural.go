@@ -1,6 +1,6 @@
 package utl
 
-import "fmt"
+import "strconv"
 
 //Plural returns an "s" if length != 1
 func Plural(length int, single, multiple string) string {
@@ -17,25 +17,28 @@ func Plural(length int, single, multiple string) string {
 }
 
 //Ordinal gives you the input number in a rank/ordinal format. e.g. Ordinal(3, true) outputs "=3rd"
-func Ordinal(position uint, equal bool) string {
-	suffix := "th"
+//nolint:gomnd // No magic numbers.
+func Ordinal(position uint, isEqual bool) (suffix string) {
+	if isEqual {
+		suffix = "="
+	}
+
+	suffix += strconv.FormatUint(uint64(position), 10)
+
 	switch position % 10 {
 	case 1:
 		if position%100 != 11 {
-			suffix = "st"
+			return suffix + "st"
 		}
 	case 2:
 		if position%100 != 12 {
-			suffix = "nd"
+			return suffix + "nd"
 		}
 	case 3:
 		if position%100 != 13 {
-			suffix = "rd"
+			return suffix + "rd"
 		}
 	}
-	var sign string
-	if equal {
-		sign = "="
-	}
-	return fmt.Sprintf("%v%d%v", sign, position, suffix)
+
+	return suffix + "th"
 }
