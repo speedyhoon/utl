@@ -1,6 +1,7 @@
 package brwsr
 
 import (
+	"fmt"
 	"os/exec"
 )
 
