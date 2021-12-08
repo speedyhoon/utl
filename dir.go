@@ -1,15 +1,14 @@
 package utl
 
-import (
-	"os"
-	"path/filepath"
-)
+import "os"
 
-//Cwd returns the current working directory where the application is stored.
-func Cwd() string {
-	path, err := os.Getwd()
+// Cwd returns the current working directory where the application is stored.
+func Cwd() (path string) {
+	var err error
+	path, err = os.Getwd()
 	if err != nil {
 		return "."
 	}
-	return filepath.Dir(path)
+
+	return
 }
