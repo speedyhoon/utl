@@ -208,6 +208,7 @@ func ordinal1(x int, isEqual bool) string {
 
 	return strconv.Itoa(x) + "th"
 }
+
 func ordinal2(x int, isEqual bool) string {
 	switch x % 10 {
 	case 1:

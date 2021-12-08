@@ -10,10 +10,10 @@ import (
 	"strings"
 )
 
-//Exec executes an external command & returns stdout & stderr
-//src = content passed to stdin
-//dir = which directory to execute the command in
-//command = the command to execute
+// Exec executes an external command & returns stdout & stderr
+// src = content passed to stdin
+// dir = which directory to execute the command in
+// command = the command to execute
 func Exec(src []byte, dir, command string, args ...string) ([]byte, error) {
 	cmd := exec.Command(command, args...)
 	if dir != "" {
@@ -38,7 +38,7 @@ func Exec(src []byte, dir, command string, args ...string) ([]byte, error) {
 			return nil, err
 		}
 
-		//pass src to stdin
+		// pass src to stdin
 		go func() {
 			defer func() {
 				if err = stdin.Close(); err != nil {
@@ -46,7 +46,7 @@ func Exec(src []byte, dir, command string, args ...string) ([]byte, error) {
 				}
 			}()
 
-			//Ignore len(src) written to src
+			// Ignore len(src) written to src
 			if _, err = stdin.Write(src); err != nil {
 				log.Println(err)
 			}
@@ -57,11 +57,11 @@ func Exec(src []byte, dir, command string, args ...string) ([]byte, error) {
 	var output []byte
 	scanOut := bufio.NewScanner(stdout)
 	go func() {
-		//Gather output from external command
+		// Gather output from external command
 		for scanOut.Scan() {
 			output = append(output, []byte(fmt.Sprintf("%v\n", scanOut.Text()))...)
 		}
-		//Collect stdout scanner error
+		// Collect stdout scanner error
 		if err = scanOut.Err(); err != nil {
 			errs = append(errs, "stdout scan err: "+err.Error())
 		}
@@ -69,7 +69,7 @@ func Exec(src []byte, dir, command string, args ...string) ([]byte, error) {
 
 	scanErr := bufio.NewScanner(stderr)
 	go func() {
-		//Collect all errors returned from stderr and scanner errors
+		// Collect all errors returned from stderr and scanner errors
 		for scanErr.Scan() {
 			errs = append(errs, scanErr.Text())
 		}
@@ -86,7 +86,7 @@ func Exec(src []byte, dir, command string, args ...string) ([]byte, error) {
 		errs = append(errs, err.Error())
 	}
 
-	//Return all the errors from stdout, stderr, start & wait
+	// Return all the errors from stdout, stderr, start & wait
 	if len(errs) > 0 {
 		return output, fmt.Errorf(strings.Join(errs, "\n"))
 	}
