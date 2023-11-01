@@ -1,0 +1,51 @@
+package utl
+
+import "strings"
+
+// StrRemoveEmpty removes items that only contain whitespace.
+func StrRemoveEmpty(s []string) string {
+	for i := 0; i < len(s); {
+		if s[i] = strings.TrimSpace(s[i]); s[i] != "" {
+			i++
+			continue
+		}
+
+		s = RemoveItem(s, uint(i))
+	}
+
+	return strings.Join(s, " ")
+}
+
+// RemoveItem removes items that only contain whitespace.
+func RemoveItem(s []string, n uint) []string {
+	l := uint(len(s))
+	if l == 0 {
+		return s
+	}
+
+	l--
+	if n > l {
+		return s
+	}
+
+	switch n {
+	case 0:
+		s = s[1:]
+	case l:
+		s = s[:l]
+	default:
+		s = append(s[:n], s[n+1:]...)
+	}
+
+	return s
+}
+
+// FromEnd returns the item index from the end of the slice, where 0 returns the last index and 1 the second last etc.
+func FromEnd(list []string, indexFromEnd uint) string {
+	l := uint(len(list))
+	if l == 0 || indexFromEnd >= l {
+		return ""
+	}
+
+	return list[l-1-indexFromEnd]
+}
