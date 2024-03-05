@@ -12,3 +12,13 @@ func Cwd() (path string) {
 
 	return
 }
+
+// IsDir determines if the path is a directory.
+func IsDir(path string) (bool, error) {
+	fs, err := os.Stat(path)
+	if err != nil {
+		return false, err
+	}
+
+	return fs.IsDir(), nil
+}
