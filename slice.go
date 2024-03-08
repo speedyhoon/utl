@@ -49,3 +49,17 @@ func FromEnd(list []string, indexFromEnd uint) string {
 
 	return list[l-1-indexFromEnd]
 }
+
+// LoopAround increments or decrements `index` by `direction`.
+// If the result is outside the range of the list `qty`, then the index is inverted.
+func LoopAround(qty int, index *uint8, direction int8) {
+	n := int(*index) + int(direction)
+	switch {
+	case n >= qty:
+		*index = 0
+	case n < 0:
+		*index = uint8(qty)
+	default:
+		*index = uint8(n)
+	}
+}
