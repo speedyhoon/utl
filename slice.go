@@ -19,15 +19,11 @@ func StrRemoveEmpty(s []string) string {
 // RemoveItem removes items that only contain whitespace.
 func RemoveItem(s []string, n uint) []string {
 	l := uint(len(s))
-	if l == 0 {
+	if l == 0 || n >= l {
 		return s
 	}
 
 	l--
-	if n > l {
-		return s
-	}
-
 	switch n {
 	case 0:
 		s = s[1:]
