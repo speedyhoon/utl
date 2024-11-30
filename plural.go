@@ -16,8 +16,7 @@ func Plural(length int, single, multiple string) string {
 	return ""
 }
 
-//Ordinal gives you the input number in a rank/ordinal format. e.g. Ordinal(3, true) outputs "=3rd"
-//nolint:gomnd // No magic numbers.
+// Ordinal gives you the input number in a rank/ordinal format. e.g. Ordinal(3, true) outputs "=3rd"
 func Ordinal(position uint, isEqual bool) (suffix string) {
 	if isEqual {
 		suffix = "="
@@ -25,17 +24,19 @@ func Ordinal(position uint, isEqual bool) (suffix string) {
 
 	suffix += strconv.FormatUint(uint64(position), 10)
 
-	switch position % 10 {
-	case 1:
-		if position%100 != 11 {
+	const first, second, third, eleventh, twelfth, thirteenth, ten, hundred = 1, 2, 3, 11, 12, 13, 10, 100
+
+	switch position % ten {
+	case first:
+		if position%hundred != eleventh {
 			return suffix + "st"
 		}
-	case 2:
-		if position%100 != 12 {
+	case second:
+		if position%hundred != twelfth {
 			return suffix + "nd"
 		}
-	case 3:
-		if position%100 != 13 {
+	case third:
+		if position%hundred != thirteenth {
 			return suffix + "rd"
 		}
 	}
