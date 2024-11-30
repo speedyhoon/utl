@@ -3,8 +3,8 @@ module github.com/speedyhoon/utl
 go 1.21.4
 
 require (
-	github.com/speedyhoon/utl/tf v0.0.0-20240305004506-ee9abb1e303f
-	github.com/stretchr/testify v1.8.4
+	github.com/speedyhoon/utl/tf v0.0.0-20240404234419-3a81ac44337a
+	github.com/stretchr/testify v1.10.0
 )
 
 require (
