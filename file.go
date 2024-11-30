@@ -2,13 +2,15 @@ package utl
 
 import "strings"
 
-const goExt = ".go"
-const testSuffix = "_test" + goExt
+const (
+	GoExt        = ".go"
+	GoTestSuffix = "_test" + GoExt
+)
 
 func IsGoFileName(path string) bool {
-	return strings.HasSuffix(strings.ToLower(path), goExt)
+	return strings.HasSuffix(strings.ToLower(path), GoExt)
 }
 
 func IsGoTestFileName(path string) bool {
-	return strings.HasSuffix(strings.ToLower(path), testSuffix)
+	return strings.HasSuffix(strings.ToLower(path), GoTestSuffix)
 }
