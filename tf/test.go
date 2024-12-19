@@ -1,3 +1,4 @@
+// Package tf provides testing function wrappers.
 package tf
 
 import (
