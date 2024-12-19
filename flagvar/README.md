@@ -29,6 +29,6 @@ go run main.go -animals cow,pig farm domestic
 
 Output:
 ```
-animals: [cow pig]
-args: [farm domestic]
+animals: ["cow", "pig"]
+args: ["farm", "domestic"]
 ```
