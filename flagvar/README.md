@@ -1,6 +1,12 @@
-# flagvar
+# flagvar 🏁
 
-Provides type `StrList` that implements the `flag.Value` interface for `[]string`.
+[![Go Reference](https://pkg.go.dev/badge/speedyhoon/utl/flagvar.svg)](https://pkg.go.dev/speedyhoon/utl/flagvar)
+[![go report card](https://goreportcard.com/badge/github.com/speedyhoon/utl/flagvar)](https://goreportcard.com/report/github.com/speedyhoon/utl/flagvar)
+
+Provides types that implement the `flag.Value` interface for built-in types to use with `flag.Var`, including:
+* `StrList []string`
+* `Uint8`
+* `Uint16`
 
 Example usage:
 ```go
