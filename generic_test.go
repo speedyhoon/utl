@@ -1,6 +1,7 @@
 package utl
 
 import (
+	"github.com/speedyhoon/utl/tf"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -31,6 +32,37 @@ func TestDel(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			Del(&tt.have, tt.index)
 			assert.Equalf(t, tt.want, tt.have, "Del(%v)", tt.have)
+		})
+	}
+}
+
+func TestDel_string(t *testing.T) {
+	zero := make([]string, 0)
+	one := []string{"one"}
+	two := []string{"one", "two"}
+
+	tests := []struct {
+		s     []string
+		index uint
+		want  []string
+	}{
+		{s: nil, index: 0, want: nil},
+		{s: nil, index: 1, want: nil},
+
+		{s: zero, index: 0, want: zero},
+		{s: zero, index: 1, want: zero},
+
+		{s: one, index: 0, want: zero},
+		{s: one, index: 1, want: one},
+
+		{s: two, index: 0, want: []string{"two"}},
+		{s: two, index: 1, want: one},
+		{s: two, index: 2, want: two},
+	}
+	for i, tt := range tests {
+		tf.Run(t, i, func(t *testing.T) {
+			Del(&tt.s, tt.index)
+			assert.Equal(t, tt.want, tt.s)
 		})
 	}
 }
