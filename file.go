@@ -14,3 +14,8 @@ func IsGoFileName(path string) bool {
 func IsGoTestFileName(path string) bool {
 	return strings.HasSuffix(strings.ToLower(path), GoTestSuffix)
 }
+
+// GoTestFileName changes a path's file extension from `.go` to `_test.go`.
+func GoTestFileName(goFileNamePath string) string {
+	return strings.TrimSuffix(goFileNamePath, GoExt) + GoTestSuffix
+}
