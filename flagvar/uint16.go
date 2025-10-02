@@ -1,8 +1,6 @@
 package flagvar
 
-import (
-	"strconv"
-)
+import "strconv"
 
 // Uint16 implements the flag.Value interface.
 type Uint16 uint16

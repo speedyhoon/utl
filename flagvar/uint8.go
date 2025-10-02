@@ -1,8 +1,6 @@
 package flagvar
 
-import (
-	"strconv"
-)
+import "strconv"
 
 // Uint8 implements the flag.Value interface.
 type Uint8 uint8
