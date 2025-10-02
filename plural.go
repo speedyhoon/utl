@@ -22,7 +22,7 @@ func Ordinal(position uint, isEqual bool) (ord string) {
 
 	ord += UtoA(position)
 
-	const first, second, third, eleventh, twelfth, thirteenth, ten, hundred = 1, 2, 3, 11, 12, 13, 10, 100
+	const first, second, third, ten, eleventh, twelfth, thirteenth, hundred = 1, 2, 3, 10, 11, 12, 13, 100
 
 	switch position % ten {
 	case first:
