@@ -1,7 +1,5 @@
 package utl
 
-import "strconv"
-
 // Plural returns an "s" if length != 1
 func Plural(length int, single, multiple string) string {
 	if length != 1 && length != -1 {
@@ -22,7 +20,7 @@ func Ordinal(position uint, isEqual bool) (ord string) {
 		ord = "="
 	}
 
-	ord += strconv.FormatUint(uint64(position), 10)
+	ord += UtoA(position)
 
 	const first, second, third, eleventh, twelfth, thirteenth, ten, hundred = 1, 2, 3, 11, 12, 13, 10, 100
 

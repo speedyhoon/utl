@@ -510,9 +510,9 @@ func ordinal11(x uint64, isEqual bool) (suffix string) {
 
 func ordinal12(x int, isEqual bool) (suffix string) {
 	if isEqual {
-		suffix = "=" + strconv.FormatUint(uint64(x), 10)
+		suffix = "=" + strconv.Itoa(x)
 	} else {
-		suffix = strconv.FormatUint(uint64(x), 10)
+		suffix = strconv.Itoa(x)
 	}
 
 	switch x % 10 {
@@ -538,56 +538,56 @@ func ordinal13(x int, isEqual bool) string {
 	case 1:
 		if x%100 != 11 {
 			if isEqual {
-				return "=" + strconv.FormatUint(uint64(x), 10) + "st"
+				return "=" + strconv.Itoa(x) + "st"
 			}
-			return strconv.FormatUint(uint64(x), 10) + "st"
+			return strconv.Itoa(x) + "st"
 		} else {
 			if isEqual {
-				return "=" + strconv.FormatUint(uint64(x), 10) + "th"
+				return "=" + strconv.Itoa(x) + "th"
 			}
 
-			return strconv.FormatUint(uint64(x), 10) + "th"
+			return strconv.Itoa(x) + "th"
 		}
 	case 2:
 		if x%100 != 12 {
 			if isEqual {
-				return "=" + strconv.FormatUint(uint64(x), 10) + "nd"
+				return "=" + strconv.Itoa(x) + "nd"
 			}
-			return strconv.FormatUint(uint64(x), 10) + "nd"
+			return strconv.Itoa(x) + "nd"
 		} else {
 			if isEqual {
-				return "=" + strconv.FormatUint(uint64(x), 10) + "th"
+				return "=" + strconv.Itoa(x) + "th"
 			}
 
-			return strconv.FormatUint(uint64(x), 10) + "th"
+			return strconv.Itoa(x) + "th"
 		}
 	case 3:
 		if x%100 != 13 {
 			if isEqual {
-				return "=" + strconv.FormatUint(uint64(x), 10) + "rd"
+				return "=" + strconv.Itoa(x) + "rd"
 			}
-			return strconv.FormatUint(uint64(x), 10) + "rd"
+			return strconv.Itoa(x) + "rd"
 		} else {
 			if isEqual {
-				return "=" + strconv.FormatUint(uint64(x), 10) + "th"
+				return "=" + strconv.Itoa(x) + "th"
 			}
 
-			return strconv.FormatUint(uint64(x), 10) + "th"
+			return strconv.Itoa(x) + "th"
 		}
 	default:
 		if isEqual {
-			return "=" + strconv.FormatUint(uint64(x), 10) + "th"
+			return "=" + strconv.Itoa(x) + "th"
 		}
 
-		return strconv.FormatUint(uint64(x), 10) + "th"
+		return strconv.Itoa(x) + "th"
 	}
 }
 
 func ordinal14(x uint, isEqual bool) (suffix string) {
 	if isEqual {
-		suffix = "=" + strconv.FormatUint(uint64(x), 10)
+		suffix = "=" + UtoA(x)
 	} else {
-		suffix = strconv.FormatUint(uint64(x), 10)
+		suffix = UtoA(x)
 	}
 
 	switch x % 10 {
