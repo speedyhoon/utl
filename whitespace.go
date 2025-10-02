@@ -6,7 +6,7 @@ import (
 	"unicode"
 )
 
-// StripWhiteSpace removes unicode whitespace characters and condenses multiple spaces to a single character
+// StripWhiteSpace removes Unicode whitespace characters and condenses multiple spaces to a single character
 func StripWhiteSpace(str string) string {
 	return CollapseSpaces(strings.Map(func(r rune) rune {
 		// credit: Tim Cooper //stackoverflow.com/questions/32081808/strip-all-whitespace-from-a-string
@@ -32,8 +32,7 @@ func CollapseSpaces(str string) string {
 
 // TrimSpace removes all leading & trailing null & whitespace from src
 func TrimSpace(src []byte) []byte {
-	for i := 0; i != len(src); {
-		i = len(src)
+	for a, b := len(src), 0; a != b; a, b = len(src), a {
 		src = bytes.Trim(src, "\x00")
 		src = bytes.TrimSpace(src)
 	}
