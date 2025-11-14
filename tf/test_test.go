@@ -9,12 +9,12 @@ import (
 
 func TestRun(t *testing.T) {
 	index := rand.Int()
-	captureChan := make(chan string, 1)
+	nameChan := make(chan string, 1)
 
-	tf.Run(t, index, func(subT *testing.T) {
-		captureChan <- subT.Name()
+	tf.Run(t, index, func(tt *testing.T) {
+		nameChan <- tt.Name()
 	})
-	got := <-captureChan
+	got := <-nameChan
 
 	expected := fmt.Sprintf("TestRun/test[%d]", index)
 	if got != expected {
