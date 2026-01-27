@@ -1,7 +1,7 @@
 package flagvar
 
 import (
-	"github.com/speedyhoon/utl/tf"
+	"github.com/speedyhoon/tf"
 
 	"testing"
 )

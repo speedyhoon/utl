@@ -1,2 +1,2 @@
 # tf
-Simple testing function wrappers (so far).
+Moved to [github.com/speedyhoon/tf](https://github.com/speedyhoon/tf).

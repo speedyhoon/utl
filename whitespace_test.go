@@ -1,7 +1,7 @@
 package utl
 
 import (
-	"github.com/speedyhoon/utl/tf"
+	"github.com/speedyhoon/tf"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
