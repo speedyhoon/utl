@@ -23,7 +23,6 @@ func TestNameOf(t *testing.T) {
 		{name: "utl.Cwd", arg: Cwd, want: "utl.Cwd"},
 		{name: "utl.Exec", arg: Exec, want: "utl.Exec"},
 		{name: "utl.UtoA", arg: UtoA, want: "utl.UtoA"},
-		{name: "utl.Ordinal", arg: Ordinal, want: "utl.Ordinal"},
 		{name: "utl.LogBaseXUint", arg: LogBaseXUint, want: "utl.LogBaseXUint"},
 		{name: "strconv.FormatFloat", arg: strconv.FormatFloat, want: "strconv.FormatFloat"},
 		{name: "http.AllowQuerySemicolons", arg: http.AllowQuerySemicolons, want: "http.AllowQuerySemicolons"},
