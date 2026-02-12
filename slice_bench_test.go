@@ -7,13 +7,13 @@ import (
 )
 
 func BenchmarkStrRemoveEmpty(b *testing.B) {
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		utl.StrRemoveEmpty([]string{"0", "", " ", "\t", "\n", "1"})
 	}
 }
 
 func BenchmarkStrRemoveEmptyOld(b *testing.B) {
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		StrRemoveEmptyOld([]string{"0", "", " ", "\t", "\n", "1"})
 	}
 }
