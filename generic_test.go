@@ -1,8 +1,9 @@
-package utl
+package utl_test
 
 import (
+	"fmt"
 	"github.com/go-openapi/testify/v2/assert"
-	"github.com/speedyhoon/tf"
+	"github.com/speedyhoon/utl"
 	"testing"
 )
 
@@ -30,7 +31,7 @@ func TestDel(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			Del(&tt.have, tt.index)
+			utl.Del(&tt.have, tt.index)
 			assert.Equalf(t, tt.want, tt.have, "Del(%v)", tt.have)
 		})
 	}
@@ -60,8 +61,8 @@ func TestDel_string(t *testing.T) {
 		{s: two, index: 2, want: two},
 	}
 	for i, tt := range tests {
-		tf.Run(t, i, func(t *testing.T) {
-			Del(&tt.s, tt.index)
+		tfRun(t, i, func(t *testing.T) {
+			utl.Del(&tt.s, tt.index)
 			assert.Equal(t, tt.want, tt.s)
 		})
 	}
@@ -85,7 +86,7 @@ func TestDelDup(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			DelDup(&tt.have)
+			utl.DelDup(&tt.have)
 			assert.Equalf(t, tt.want, tt.have, "DelDup(%v)", tt.have)
 		})
 	}
@@ -106,7 +107,12 @@ func TestLen(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			assert.Equalf(t, tt.want, Len(tt.have), "Len(%v)", tt.have)
+			assert.Equalf(t, tt.want, utl.Len(tt.have), "Len(%v)", tt.have)
 		})
 	}
+}
+
+// tfRun uses "test[index]" as the test name for *testing.T.Run()
+func tfRun(t *testing.T, index int, f func(*testing.T)) {
+	t.Run(fmt.Sprintf("test[%d]", index), f)
 }

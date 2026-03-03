@@ -1,8 +1,8 @@
-package utl
+package utl_test
 
 import (
 	"github.com/go-openapi/testify/v2/assert"
-	"github.com/speedyhoon/tf"
+	"github.com/speedyhoon/utl"
 	"testing"
 )
 
@@ -26,8 +26,8 @@ func TestTrimSpace(t *testing.T) {
 		},
 	}
 	for i, tt := range tests {
-		tf.Run(t, i, func(t *testing.T) {
-			assert.Equalf(t, tt.want, TrimSpace(tt.input), "TrimSpace(%v)", tt.input)
+		tfRun(t, i, func(t *testing.T) {
+			assert.Equalf(t, tt.want, utl.TrimSpace(tt.input), "TrimSpace(%v)", tt.input)
 		})
 	}
 }

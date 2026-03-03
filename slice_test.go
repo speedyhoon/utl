@@ -2,7 +2,6 @@ package utl_test
 
 import (
 	"github.com/go-openapi/testify/v2/assert"
-	"github.com/speedyhoon/tf"
 	"github.com/speedyhoon/utl"
 	"testing"
 )
@@ -29,7 +28,7 @@ func TestStrRemoveEmpty(t *testing.T) {
 		{[]string{"0", "", " ", "\t", "\n", "1"}, "0 1"},
 	}
 	for i, tt := range tests {
-		tf.Run(t, i, func(t *testing.T) {
+		tfRun(t, i, func(t *testing.T) {
 			assert.Equal(t, tt.expected, utl.StrRemoveEmpty(tt.input))
 		})
 	}
@@ -59,7 +58,7 @@ func TestRemoveItem(t *testing.T) {
 		{[]string{"0", "1", "2", "3", "4", "5"}, 125, []string{"0", "1", "2", "3", "4", "5"}},
 	}
 	for i, tt := range tests {
-		tf.Run(t, i, func(t *testing.T) {
+		tfRun(t, i, func(t *testing.T) {
 			assert.Equal(t, tt.expected, utl.RemoveItem(tt.slice, tt.n))
 		})
 	}
@@ -93,7 +92,7 @@ func TestFromEnd(t *testing.T) {
 		{[]string{"0", "1", "2", "3", "4", "5", "6"}, 99, ""},
 	}
 	for i, tt := range tests {
-		tf.Run(t, i, func(t *testing.T) {
+		tfRun(t, i, func(t *testing.T) {
 			assert.Equal(t, tt.want, utl.FromEnd(tt.input, tt.indexFromEnd))
 		})
 	}
