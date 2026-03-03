@@ -1,8 +1,8 @@
 package utl
 
 import (
+	"github.com/go-openapi/testify/v2/assert"
 	"github.com/speedyhoon/tf"
-	"github.com/stretchr/testify/assert"
 	"testing"
 )
 

@@ -88,7 +88,7 @@ func Exec(src []byte, dir, command string, args ...string) ([]byte, error) {
 
 	// Return all the errors from stdout, stderr, start & wait
 	if len(errs) > 0 {
-		return output, fmt.Errorf(strings.Join(errs, "\n"))
+		return output, errors.New(strings.Join(errs, "\n"))
 	}
 	return output, nil
 }

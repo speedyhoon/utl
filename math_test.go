@@ -2,8 +2,8 @@ package utl_test
 
 import (
 	"fmt"
+	"github.com/go-openapi/testify/v2/assert"
 	"github.com/speedyhoon/utl"
-	"github.com/stretchr/testify/assert"
 	"testing"
 )
 

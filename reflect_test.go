@@ -1,7 +1,7 @@
 package utl
 
 import (
-	"github.com/stretchr/testify/assert"
+	"github.com/go-openapi/testify/v2/assert"
 	"net/http"
 	"strconv"
 	"testing"
