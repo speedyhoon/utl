@@ -5,15 +5,14 @@ import "strconv"
 // Uint32 implements the flag.Value interface.
 type Uint32 uint32
 
-// Set converts s into an uint32.
+// Set converts string s into an uint32.
 func (l *Uint32) Set(s string) error {
 	u64, err := strconv.ParseUint(s, 10, 32)
-	if err != nil {
-		return err
+	if err == nil {
+		*l = Uint32(u64)
 	}
 
-	*l = Uint32(u64)
-	return nil
+	return err
 }
 
 // String returns the string representation of Uint32.
@@ -22,4 +21,11 @@ func (l *Uint32) String() string {
 		return strconv.FormatUint(uint64(*l), 10)
 	}
 	return ""
+}
+
+func (l *Uint32) Get() uint32 {
+	if l != nil {
+		return uint32(*l)
+	}
+	return 0
 }

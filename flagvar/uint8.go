@@ -5,15 +5,14 @@ import "strconv"
 // Uint8 implements the flag.Value interface.
 type Uint8 uint8
 
-// Set converts s into an uint8.
+// Set converts string s into an uint8.
 func (l *Uint8) Set(s string) error {
 	u64, err := strconv.ParseUint(s, 10, 8)
-	if err != nil {
-		return err
+	if err == nil {
+		*l = Uint8(u64)
 	}
 
-	*l = Uint8(u64)
-	return nil
+	return err
 }
 
 // String returns the string representation of Uint8.
@@ -22,4 +21,11 @@ func (l *Uint8) String() string {
 		return strconv.FormatUint(uint64(*l), 10)
 	}
 	return ""
+}
+
+func (l *Uint8) Get() uint8 {
+	if l != nil {
+		return uint8(*l)
+	}
+	return 0
 }
