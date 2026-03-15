@@ -1,4 +1,8 @@
-# flagvar 🏁
+# flagvar 🏁 [DEPRECATED]
+
+Superseded by package [github.com/speedyhoon/flag](https://github.com/speedyhoon/flag).
+
+___
 
 [![Go Reference](https://pkg.go.dev/badge/speedyhoon/utl/flagvar.svg)](https://pkg.go.dev/speedyhoon/utl/flagvar)
 [![go report card](https://goreportcard.com/badge/github.com/speedyhoon/utl/flagvar)](https://goreportcard.com/report/github.com/speedyhoon/utl/flagvar)

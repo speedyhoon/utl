@@ -1,3 +1,4 @@
+// Deprecated: superseded by package github.com/speedyhoon/flag.
 module github.com/speedyhoon/utl/flagvar
 
 go 1.21.4
