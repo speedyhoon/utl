@@ -42,3 +42,11 @@ func DelDup[T comparable](s *[]T) {
 func Len[T any](t []T) uint {
 	return uint(len(t))
 }
+
+// Tern generic ternary operator.
+func Tern[T any](cond bool, tru, fal T) T {
+	if cond {
+		return tru
+	}
+	return fal
+}
